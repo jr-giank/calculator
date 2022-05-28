@@ -11,3 +11,4 @@ realizadas.
 
 ![Calculadora](CalculadoraVacia.png)
 ![Calculos - Historial](Calculadora.png)
+![Historial Borrado](HistorialBorrado.png)
