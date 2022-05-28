@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <title>Calculator</title>
+</head>
+<body>
+    
+    <div id="Calculator">
+        <div id="top">
+            <h2>calc</h2>
+        </div>
+        <div id="input">
+            <input type="text" id="inputNumbers">
+        </div>
+        <div id="numbers">
+            <div class="row">
+                <button type="button" onclick="setNumbers(7)">7</button>
+                <button type="button" onclick="setNumbers(8)">8</button>
+                <button type="button" onclick="setNumbers(9)">9</button>
+                <button type="button" class="blue" onclick="borrar()">Del</button>
+            </div>
+            <div class="row">
+                <button type="button" onclick="setNumbers(4)">4</button>
+                <button type="button" onclick="setNumbers(5)">5</button>
+                <button type="button" onclick="setNumbers(6)">6</button>
+                <button type="button" onclick="sumar()">+</button>
+            </div>
+            <div class="row">
+                <button type="button" onclick="setNumbers(1)">1</button>
+                <button type="button" onclick="setNumbers(2)">2</button>
+                <button type="button" onclick="setNumbers(3)">3</button>
+                <button type="button" onclick="restar()">-</button>
+            </div>
+            <div class="row">
+                <button type="button" onclick="limpiarHistorial()">Hist</button>
+                <button type="button" onclick="setNumbers(0)">0</button>
+                <button type="button" onclick="dividir()">/</button>
+                <button type="button" onclick="multiplicar()">x</button>
+            </div>
+            <div class="row">
+                <button type="button" class="lasts blue" onclick="resetiar()">Reset</button>
+                <button type="button" class="lasts red" onclick="igual()">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
