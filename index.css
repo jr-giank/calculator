@@ -1,6 +1,6 @@
 /*Global*/
 body{
-    background-color: #394160 ;
+    background-color: #394160;
     margin: 0px auto;
     color: white;
 }
@@ -59,6 +59,10 @@ input[type=number]::-webkit-outer-spin-button{
     border-radius: 4px;
 }
 
+#numbers .row button label{
+    cursor: pointer;
+}
+
 #numbers .row button:hover{
     cursor: pointer;
     transform: scale(1.06);
@@ -76,6 +80,131 @@ input[type=number]::-webkit-outer-spin-button{
 
 #numbers .row .lasts{
     width: calc(100%/2);
+}
+
+/*--------------------Boton Modal--------------------*/
+.boton-modal{
+    padding: 40px;
+    background-color: #fff;
+}
+
+.boton-modal label{
+    padding: 10px 15px;
+    background-color: #5488a3;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.boton-modal label:hover{
+    background-color: #185E83;
+}
+
+#btn-modal{
+    display: none;
+}
+
+.container-modal{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    background-color: rgba(144, 148, 150, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#btn-modal:checked ~ .container-modal{
+    display: flex;
+}
+
+.content-modal{
+    width: 100%;
+    max-width: 600px;
+    height: 60%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    color: #1c223a;
+}
+
+.content-modal h2{
+    margin-bottom: 15px;
+}
+
+.content-modal p{
+    padding: 15px 0px;
+    border-top: 1px solid #dbdbdbdb;
+    border-bottom: 1px solid #dbdbdbdb;
+}
+
+.content-modal .btn-cerrar{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-modal .btn-cerrar label{
+    padding: 7px 10px;
+    background-color: #5488a3;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.content-modal .btn-cerrar label:hover{
+    background-color: #185E83;
+}
+
+.content-modal .btn-cerrar button{
+    padding: 7px 10px;
+    background-color: #2b8773;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 300ms ease;
+    border: none;
+    margin-right: 6px;
+}
+
+.content-modal .btn-cerrar button:hover{
+    background-color: #246355;
+}
+
+/*--------------------Tabla--------------------*/
+table{
+    background-color: white;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table tbody{
+    height: 180px;
+    overflow-y: auto;
+}
+
+table thead,
+table tbody{
+    display: block;
+    width: 600px;    
+}
+
+th{
+    padding: 10px 110px 10px 110px;
+}
+
+td{
+    padding: 10px 100px 10px 100px;
+}
+
+thead{
+    background-color: #394160;
+    color: white;
 }
 
 @media only screen and (max-width: 790px){

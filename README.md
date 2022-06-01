@@ -7,8 +7,10 @@ Haga una calculadora con HTML5 , JavaScript (ES5) adornada con CSS3, la cual deb
 Utilice la funcionalidad de localStorage para guardar el historial de las operaciones
 realizadas.
 
-- Para eliminar el historial se debe presionar el botón Hist.
+- Para abrir el historial debemos precionar el boton Hist.
+- Para eliminar el historial se debe presionar el botón limpiar.
 
-![Calculadora](CalculadoraVacia.png)
-![Calculos - Historial](Calculadora.png)
-![Historial Borrado](HistorialBorrado.png)
+![Calculadora](calculadoraVacia.png)
+![LocalStorage - Historial](localStorageHistorial.png)
+![Calculos - Historial](historial.png)
+![Historial Borrado](historialBorrado.png)

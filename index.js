@@ -1,17 +1,32 @@
 let inputNumbers = document.getElementById('inputNumbers');
+let parrafo = document.getElementById('parrafo');
 let Numbers = [];
+let Historial = [];
 let currentValue = 0;
 let operacion;
 let estado = false;
 let useBorrar = false;
 
+const cargarHistorial = () => {
+    let historial = JSON.parse(localStorage.getItem('Historial'));
+    let tableBody = document.getElementById('tablaBody');
+    tableBody.innerHTML = '';
+   
+    historial.map(dato => {
+        let fila = document.createElement('tr');
+        let operacion = document.createElement('td');
+        let resultado = document.createElement('td');
+
+        operacion.innerText = dato.operacion;
+        resultado.innerText = dato.resultado;
+
+        fila.appendChild(operacion);
+        fila.appendChild(resultado);
+        tableBody.appendChild(fila);
+    })
+}
+
 const setNumbers = (number) => {
-
-    if(localStorage.getItem('Historial')){
-
-    }else{
-        localStorage.setItem('Historial', '')
-    }
 
     if(currentValue !== 0 && inputNumbers.value === ''){
         Numbers = [];
@@ -75,7 +90,9 @@ const sumar = () => {
     }else if(estado === true && inputNumbers.value === ''){
         alert('Ya has elegido una operación')
     }else{
-        localStorage.setItem(`${igualComa(currentValue)} + ${inputNumbers.value}:`, igualComa(currentValue + parseInt(String(inputNumbers.value).replaceAll(',', ''))));
+        let value = igualComa(currentValue + parseInt(String(inputNumbers.value).replaceAll(',', '')));
+        Historial.push({operacion: igualComa(currentValue) + '+' + inputNumbers.value, resultado : value});
+        localStorage.setItem('Historial', JSON.stringify(Historial));
         currentValue =  currentValue + parseInt(String(inputNumbers.value).replaceAll(',', ''));
     }
 
@@ -92,8 +109,10 @@ const restar = () => {
     }else if(estado === true && inputNumbers.value === ''){
         alert('Ya has elegido una operación')
     }else{
-        localStorage.setItem(`${igualComa(currentValue)} - ${inputNumbers.value}:`, igualComa(currentValue - parseInt(String(inputNumbers.value).replaceAll(',', ''))));
-        currentValue = currentValue - parseInt(String(inputNumbers.value).replaceAll(',', ''));
+        let value = igualComa(currentValue - parseInt(String(inputNumbers.value).replaceAll(',', '')));
+        Historial.push({operacion: igualComa(currentValue) + '-' + inputNumbers.value, resultado : value});
+        localStorage.setItem('Historial', JSON.stringify(Historial));
+        currentValue =  currentValue - parseInt(String(inputNumbers.value).replaceAll(',', ''));
     }
 
     inputNumbers.value = '';
@@ -109,8 +128,10 @@ const multiplicar = () => {
     }else if(estado === true && inputNumbers.value === ''){
         alert('Ya has elegido una operación')
     }else{
-        localStorage.setItem(`${igualComa(currentValue)} x ${inputNumbers.value}:`, igualComa(currentValue * parseInt(String(inputNumbers.value).replaceAll(',', ''))));
-        currentValue = currentValue * parseInt(String(inputNumbers.value).replaceAll(',', ''));
+        let value = igualComa(currentValue * parseInt(String(inputNumbers.value).replaceAll(',', '')));
+        Historial.push({operacion: igualComa(currentValue) + 'x' + inputNumbers.value, resultado : value});
+        localStorage.setItem('Historial', JSON.stringify(Historial));
+        currentValue =  currentValue * parseInt(String(inputNumbers.value).replaceAll(',', ''));
     }
 
     inputNumbers.value = '';
@@ -126,8 +147,10 @@ const dividir = () => {
     }else if(estado === true && inputNumbers.value === ''){
         alert('Ya has elegido una operación')
     }else{
-        localStorage.setItem(`${igualComa(currentValue)} ÷ ${inputNumbers.value}:`, igualComa(currentValue / parseInt(String(inputNumbers.value).replaceAll(',', ''))));
-        currentValue = currentValue / parseInt(String(inputNumbers.value).replaceAll(',', ''));
+        let value = igualComa(currentValue / parseInt(String(inputNumbers.value).replaceAll(',', '')));
+        Historial.push({operacion: igualComa(currentValue) + '÷' + inputNumbers.value, resultado : value});
+        localStorage.setItem('Historial', JSON.stringify(Historial));
+        currentValue =  currentValue / parseInt(String(inputNumbers.value).replaceAll(',', ''));
     }
 
     inputNumbers.value = '';
@@ -136,22 +159,26 @@ const dividir = () => {
 
 const igual = () => {
 
-    if(operacion === 'sumar' && estado === true && inputNumbers.value !== ''){
-        localStorage.setItem(`${igualComa(currentValue)} + ${inputNumbers.value}:`, igualComa(currentValue + parseInt(String(inputNumbers.value).replaceAll(',', ''))));
-        currentValue = currentValue + parseInt(String(inputNumbers.value).replaceAll(',', ''));
+    if(operacion === 'sumar' && estado === true && inputNumbers.value !== ''){     
+        Historial.push({operacion: igualComa(currentValue) + '+' + inputNumbers.value, resultado : igualComa(currentValue + parseInt(String(inputNumbers.value).replaceAll(',', '')))});
+        currentValue = currentValue + parseInt(String(inputNumbers.value).replaceAll(',', ''));   
         inputNumbers.value = igualComa(currentValue);
+        localStorage.setItem('Historial', JSON.stringify(Historial));
     }else if(operacion === 'restar' && estado === true && inputNumbers.value !== ''){
-        localStorage.setItem(`${igualComa(currentValue)} - ${inputNumbers.value}:`, igualComa(currentValue - parseInt(String(inputNumbers.value).replaceAll(',', ''))));
+        Historial.push({operacion: igualComa(currentValue) + '-' + inputNumbers.value, resultado : igualComa(currentValue - parseInt(String(inputNumbers.value).replaceAll(',', '')))});
         currentValue = currentValue - parseInt(String(inputNumbers.value).replaceAll(',', ''));
         inputNumbers.value = igualComa(currentValue);
+        localStorage.setItem('Historial', JSON.stringify(Historial));
     }else if(operacion === 'multiplicar' && estado === true && inputNumbers.value !== ''){
-        localStorage.setItem(`${igualComa(currentValue)} x ${inputNumbers.value}:`, igualComa(currentValue * parseInt(String(inputNumbers.value).replaceAll(',', ''))));
+        Historial.push({operacion: igualComa(currentValue) + 'x' + inputNumbers.value, resultado : igualComa(currentValue * parseInt(String(inputNumbers.value).replaceAll(',', '')))});
         currentValue = currentValue * parseInt(String(inputNumbers.value).replaceAll(',', ''));
         inputNumbers.value = igualComa(currentValue);
+        localStorage.setItem('Historial', JSON.stringify(Historial));
     }else if(operacion === 'dividir' && estado === true && inputNumbers.value !== ''){
-        localStorage.setItem(`${igualComa(currentValue)} ÷ ${inputNumbers.value}:`, igualComa(currentValue / parseInt(String(inputNumbers.value).replaceAll(',', ''))));
+        Historial.push({operacion: igualComa(currentValue) + '÷' + inputNumbers.value, resultado : igualComa(currentValue / parseInt(String(inputNumbers.value).replaceAll(',', '')))});
         currentValue = currentValue / parseInt(String(inputNumbers.value).replaceAll(',', ''));
         inputNumbers.value = igualComa(currentValue);
+        localStorage.setItem('Historial', JSON.stringify(Historial));
     }else{
         alert('Ya se ha realizado la operación')
     }
@@ -168,6 +195,7 @@ const resetiar = () => {
 
 const limpiarHistorial = () => {
     localStorage.clear();
+    cargarHistorial();
 }
 
 const borrar = () => {

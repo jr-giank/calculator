@@ -36,7 +36,11 @@
                 <button type="button" onclick="restar()">-</button>
             </div>
             <div class="row">
-                <button type="button" onclick="limpiarHistorial()">Hist</button>
+                <button type="button">
+                    <label for="btn-modal" onclick="cargarHistorial()">
+                        Hist
+                    </label>
+                </button>
                 <button type="button" onclick="setNumbers(0)">0</button>
                 <button type="button" onclick="dividir()">/</button>
                 <button type="button" onclick="multiplicar()">x</button>
@@ -44,6 +48,29 @@
             <div class="row">
                 <button type="button" class="lasts blue" onclick="resetiar()">Reset</button>
                 <button type="button" class="lasts red" onclick="igual()">=</button>
+            </div>
+        </div>
+    </div>
+    
+    <input type="checkbox" id="btn-modal">
+    <div class="container-modal">
+        <div class="content-modal">
+            <h2>Historial</h2>
+            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt fuga cum porro deserunt, nobis inventore saepe nostrum error veritatis numquam! Commodi perspiciatis, amet excepturi placeat a quaerat voluptatem autem. Consectetur.</p> -->
+            <table id="tabla">
+                <thead>
+                    <tr>
+                        <th>Operación</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaBody">
+
+                </tbody>
+            </table>
+            <div class="btn-cerrar">
+                <button onclick="limpiarHistorial()">Limpiar</button>
+                <label for="btn-modal">Cerrar</label>
             </div>
         </div>
     </div>
