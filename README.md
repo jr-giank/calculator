@@ -10,7 +10,7 @@ realizadas.
 - Para abrir el historial debemos precionar el boton Hist.
 - Para eliminar el historial se debe presionar el botón limpiar.
 
-![Calculadora](calculadoraVacia.png)
+![Calculadora](calculadora.png)calculadoraVacia
 ![LocalStorage - Historial](localStorageHistorial.png)
 ![Calculos - Historial](historial.png)
-![Historial Borrado](historialBorrado.png)
+![Historial Borrado](borradoHistorial.png)
