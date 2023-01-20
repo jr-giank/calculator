@@ -1,16 +1,13 @@
-## Tarea #2 - Basilio Gianfranco De Paula Cuevas (2020-10552)
+## Calculadora Web 
 
-### Calculadora Web 
+Calculadora en HTML5, JavaScript (ES5) adornada con CSS3, la cual hace las operaciones básicas de suma, resta, multiplicación y división. Se almacena un historial de los cálculos realizados hasta que el usuario decide eliminarlos.
 
-Haga una calculadora con HTML5 , JavaScript (ES5) adornada con CSS3, la cual debe hacer las operaciones básicas de suma, resta, multiplicación y división la cual almacene un historial de los cálculos hechos hasta que el usuario decida eliminarlos.
-
-Utilice la funcionalidad de localStorage para guardar el historial de las operaciones
-realizadas.
+Se utiliza la funcionalidad de localStorage para guardar el historial de las operaciones realizadas.
 
 - Para abrir el historial debemos precionar el boton Hist.
 - Para eliminar el historial se debe presionar el botón limpiar.
 
-![Calculadora](./img/calculadora.png)calculadoraVacia
+![Calculadora](./img/calculadora.png)
 ![LocalStorage - Historial](./img/localStorageHistorial.png)
 ![Calculos - Historial](./img/historial.png)
 ![Historial Borrado](./img/borradoHistorial.png)
